@@ -17,35 +17,13 @@ public class SphereRotator : MonoBehaviour
         }
     }
 
-    // private IEnumerator RotatingSpace(float angle)
-    // {
-    //     float rotatedAngle = 0f;
-
-    //     Quaternion startRotation = space.rotation;
-
-    //     while (rotatedAngle < Mathf.Abs(angle))
-    //     {
-    //         float step = rotationSpeed * Time.deltaTime;
-    //         if (rotatedAngle + step > Mathf.Abs(angle))
-    //             step = Mathf.Abs(angle) - rotatedAngle;
-
-    //         space.RotateAround(flyLegs.position, flyLegs.right, Mathf.Sign(angle) * step);
-    //         rotatedAngle += step;
-
-    //         yield return null;
-    //     }
-
-    //     space.rotation = space.rotation;
-    // }
-
     private IEnumerator RotatingSpace(float angle)
     {
-        Quaternion startRotation = space.rotation; // rotation de départ
+        Quaternion startRotation = space.rotation;
         Quaternion targetRotation = startRotation * Quaternion.AngleAxis(angle, flyLegs.right);
 
         float elapsed = 0f;
-        float duration = Mathf.Abs(angle) / rotationSpeed; // durée totale en secondes
-
+        float duration = Mathf.Abs(angle) / rotationSpeed;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -55,7 +33,6 @@ public class SphereRotator : MonoBehaviour
             yield return null;
         }
 
-        // s’assure que la rotation finale est exactement la cible
         space.rotation = targetRotation;
     }
 }

@@ -37,6 +37,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: OrbitMaterial
+    second: {fileID: 2100000, guid: 33d62fa190ab317429334894c4e2360f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ToiletMat
     second: {fileID: 2100000, guid: c7ef3edcfd3586a4ba8344e6e1928bf7, type: 2}
   - first:

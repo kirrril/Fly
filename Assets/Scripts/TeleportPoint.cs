@@ -9,15 +9,12 @@ public class TeleportPoint : MonoBehaviour
 
     public void Teleport()
     {
-        if (SphereManager.isTeleporting) return;
         StartCoroutine(TeleportRoutine());
     }
 
     private IEnumerator TeleportRoutine()
     {
         Debug.Log("Coroutine started");
-
-        SphereManager.isTeleporting = true;
         
         Vector3 start = xrOrigin.position;
         // Quaternion startRot = xrOrigin.rotation;
@@ -34,7 +31,5 @@ public class TeleportPoint : MonoBehaviour
 
         xrOrigin.position = destination.position;
         // xrOrigin.rotation = destination.rotation;
-
-        SphereManager.isTeleporting = false;
     }
 }
