@@ -1,13 +1,19 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FlatRotator : MonoBehaviour
 {
-    [SerializeField] private Transform flatOrbit;
+    [SerializeField] private GameObject gizmo;
+    [SerializeField] private Transform flatGizmo;
+    [SerializeField] private Transform orbitGizmo;
 
     void Update()
     {
-        Vector3 flatEuler = transform.eulerAngles;
-        flatEuler = flatOrbit.eulerAngles;
-        transform.eulerAngles = flatEuler;
+        flatGizmo.localRotation = orbitGizmo.localRotation;
+    }
+
+    public void ToggleGizmoNoParam()
+    {   
+        gizmo.SetActive(!gizmo.activeSelf);
     }
 }
