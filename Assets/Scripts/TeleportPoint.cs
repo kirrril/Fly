@@ -13,9 +13,7 @@ public class TeleportPoint : MonoBehaviour
     }
 
     private IEnumerator TeleportRoutine()
-    {
-        Debug.Log("Coroutine started");
-        
+    {    
         Vector3 start = xrOrigin.position;
         // Quaternion startRot = xrOrigin.rotation;
         float elapsed = 0f;

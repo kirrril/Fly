@@ -23,10 +23,14 @@ public class FlyMover : MonoBehaviour
     public void OnMove(InputAction.CallbackContext ctx)
     {
         moveInput = ctx.ReadValue<Vector2>();
+
+        Debug.Log("Is Moving");
     }
 
     public void OnRotate(InputAction.CallbackContext ctx)
     {
         headRotation = ctx.ReadValue<Quaternion>();
+
+        Debug.Log("Is Rotating");
     }
 }
