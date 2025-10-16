@@ -243,6 +243,24 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Fly"",
+                    ""type"": ""Value"",
+                    ""id"": ""2cdfc19d-7e4a-44b2-b1fa-5836e6cc2c15"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveHead"",
+                    ""type"": ""Value"",
+                    ""id"": ""6e0eaa10-9ff7-4a5d-b1f5-34843064dccb"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -542,6 +560,39 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""action"": ""Haptic"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e229add-62c7-4b7f-b562-6daa0e2b0c14"",
+                    ""path"": ""<XRController>{RightHand}/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fly"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fb5c650-9b79-4360-8f79-2b9e91a33780"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fly"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ab22f89-59c9-4498-949d-1cf72523d01b"",
+                    ""path"": ""<XRHMD>/devicePosition"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHead"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -567,6 +618,8 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         m_UniversalMap_LeftTrackingState = m_UniversalMap.FindAction("LeftTrackingState", throwIfNotFound: true);
         m_UniversalMap_RightTrackingState = m_UniversalMap.FindAction("RightTrackingState", throwIfNotFound: true);
         m_UniversalMap_Haptic = m_UniversalMap.FindAction("Haptic", throwIfNotFound: true);
+        m_UniversalMap_Fly = m_UniversalMap.FindAction("Fly", throwIfNotFound: true);
+        m_UniversalMap_MoveHead = m_UniversalMap.FindAction("MoveHead", throwIfNotFound: true);
     }
 
     ~@UniversalActions()
@@ -664,6 +717,8 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UniversalMap_LeftTrackingState;
     private readonly InputAction m_UniversalMap_RightTrackingState;
     private readonly InputAction m_UniversalMap_Haptic;
+    private readonly InputAction m_UniversalMap_Fly;
+    private readonly InputAction m_UniversalMap_MoveHead;
     /// <summary>
     /// Provides access to input actions defined in input action map "UniversalMap".
     /// </summary>
@@ -744,6 +799,14 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Haptic => m_Wrapper.m_UniversalMap_Haptic;
         /// <summary>
+        /// Provides access to the underlying input action "UniversalMap/Fly".
+        /// </summary>
+        public InputAction @Fly => m_Wrapper.m_UniversalMap_Fly;
+        /// <summary>
+        /// Provides access to the underlying input action "UniversalMap/MoveHead".
+        /// </summary>
+        public InputAction @MoveHead => m_Wrapper.m_UniversalMap_MoveHead;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UniversalMap; }
@@ -820,6 +883,12 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @Haptic.started += instance.OnHaptic;
             @Haptic.performed += instance.OnHaptic;
             @Haptic.canceled += instance.OnHaptic;
+            @Fly.started += instance.OnFly;
+            @Fly.performed += instance.OnFly;
+            @Fly.canceled += instance.OnFly;
+            @MoveHead.started += instance.OnMoveHead;
+            @MoveHead.performed += instance.OnMoveHead;
+            @MoveHead.canceled += instance.OnMoveHead;
         }
 
         /// <summary>
@@ -882,6 +951,12 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @Haptic.started -= instance.OnHaptic;
             @Haptic.performed -= instance.OnHaptic;
             @Haptic.canceled -= instance.OnHaptic;
+            @Fly.started -= instance.OnFly;
+            @Fly.performed -= instance.OnFly;
+            @Fly.canceled -= instance.OnFly;
+            @MoveHead.started -= instance.OnMoveHead;
+            @MoveHead.performed -= instance.OnMoveHead;
+            @MoveHead.canceled -= instance.OnMoveHead;
         }
 
         /// <summary>
@@ -1041,5 +1116,19 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHaptic(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Fly" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFly(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MoveHead" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveHead(InputAction.CallbackContext context);
     }
 }
