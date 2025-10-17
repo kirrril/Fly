@@ -101,15 +101,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""7a0712c9-cc2e-432c-af3a-a066d3566f23"",
-                    ""expectedControlType"": ""Quaternion"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Point"",
                     ""type"": ""Value"",
                     ""id"": ""c618adbd-dd18-476a-b1db-8dd0850e4f28"",
@@ -264,83 +255,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""d62919f1-9b63-4614-a6d1-1445ba1c7ab0"",
-                    ""path"": ""<XRController>{LeftHand}/{Primary2DAxis}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""b4ec201c-3359-4bc7-b03b-7f4daf1bae13"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""95b7339b-6090-435d-9026-18404d8edc38"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""badbd1f2-3829-4ce4-a86b-c9413b820d28"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""cc46a596-23a2-4f01-b6c6-786a2564d21c"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""f02c6e21-a109-41a1-9ec6-a54656083293"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3d31d0af-7acd-4a2d-8056-c2ab827b240c"",
-                    ""path"": ""<XRHMD>/{DeviceRotation}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""5a97791e-a0f1-4b7a-b4a0-aa173758de5b"",
@@ -593,6 +507,17 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""action"": ""MoveHead"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a082552-4576-4d51-abbb-1f6593e39ecf"",
+                    ""path"": ""<XRController>{LeftHand}/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -602,7 +527,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         // UniversalMap
         m_UniversalMap = asset.FindActionMap("UniversalMap", throwIfNotFound: true);
         m_UniversalMap_Move = m_UniversalMap.FindAction("Move", throwIfNotFound: true);
-        m_UniversalMap_Look = m_UniversalMap.FindAction("Look", throwIfNotFound: true);
         m_UniversalMap_Point = m_UniversalMap.FindAction("Point", throwIfNotFound: true);
         m_UniversalMap_Grab = m_UniversalMap.FindAction("Grab", throwIfNotFound: true);
         m_UniversalMap_Click = m_UniversalMap.FindAction("Click", throwIfNotFound: true);
@@ -701,7 +625,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UniversalMap;
     private List<IUniversalMapActions> m_UniversalMapActionsCallbackInterfaces = new List<IUniversalMapActions>();
     private readonly InputAction m_UniversalMap_Move;
-    private readonly InputAction m_UniversalMap_Look;
     private readonly InputAction m_UniversalMap_Point;
     private readonly InputAction m_UniversalMap_Grab;
     private readonly InputAction m_UniversalMap_Click;
@@ -734,10 +657,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UniversalMap/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_UniversalMap_Move;
-        /// <summary>
-        /// Provides access to the underlying input action "UniversalMap/Look".
-        /// </summary>
-        public InputAction @Look => m_Wrapper.m_UniversalMap_Look;
         /// <summary>
         /// Provides access to the underlying input action "UniversalMap/Point".
         /// </summary>
@@ -835,9 +754,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
             @Point.started += instance.OnPoint;
             @Point.performed += instance.OnPoint;
             @Point.canceled += instance.OnPoint;
@@ -903,9 +819,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
             @Point.started -= instance.OnPoint;
             @Point.performed -= instance.OnPoint;
             @Point.canceled -= instance.OnPoint;
@@ -1004,13 +917,6 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Point" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
