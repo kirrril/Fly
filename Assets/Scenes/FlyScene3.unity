@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0023c86f9843044bef31f6dc833704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1974442051}
+  xrOrigin: {fileID: 1717954562066946108}
   animator: {fileID: 97066839}
 --- !u!95 &97066839
 Animator:
@@ -8683,7 +8683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3699503606319978223, guid: 42d6e939eab026f4fae03e9119f84a17, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
