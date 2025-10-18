@@ -252,6 +252,15 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LookPC"",
+                    ""type"": ""Value"",
+                    ""id"": ""89b1c1f1-ecc2-48ef-835a-42c68acad5f9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -488,7 +497,7 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6fb5c650-9b79-4360-8f79-2b9e91a33780"",
+                    ""id"": ""2fd6e1ad-c192-46b5-8226-511f3c78e1b1"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -518,6 +527,72 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""51c6945a-eb07-4ac8-a55b-feef710077ac"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8d4c32f6-6b38-4787-8253-1c3bce7db9d3"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""84c9bc90-5a90-4076-8c1b-3540b9872fda"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""0102dba6-f8b1-4dd8-bd30-c176971b346d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8e3c618b-2500-4e2a-8ce8-ae6ee73e764c"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ced42f32-4d98-4549-ba92-eba09b00f210"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookPC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -544,6 +619,7 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         m_UniversalMap_Haptic = m_UniversalMap.FindAction("Haptic", throwIfNotFound: true);
         m_UniversalMap_Fly = m_UniversalMap.FindAction("Fly", throwIfNotFound: true);
         m_UniversalMap_MoveHead = m_UniversalMap.FindAction("MoveHead", throwIfNotFound: true);
+        m_UniversalMap_LookPC = m_UniversalMap.FindAction("LookPC", throwIfNotFound: true);
     }
 
     ~@UniversalActions()
@@ -642,6 +718,7 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UniversalMap_Haptic;
     private readonly InputAction m_UniversalMap_Fly;
     private readonly InputAction m_UniversalMap_MoveHead;
+    private readonly InputAction m_UniversalMap_LookPC;
     /// <summary>
     /// Provides access to input actions defined in input action map "UniversalMap".
     /// </summary>
@@ -726,6 +803,10 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @MoveHead => m_Wrapper.m_UniversalMap_MoveHead;
         /// <summary>
+        /// Provides access to the underlying input action "UniversalMap/LookPC".
+        /// </summary>
+        public InputAction @LookPC => m_Wrapper.m_UniversalMap_LookPC;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UniversalMap; }
@@ -805,6 +886,9 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @MoveHead.started += instance.OnMoveHead;
             @MoveHead.performed += instance.OnMoveHead;
             @MoveHead.canceled += instance.OnMoveHead;
+            @LookPC.started += instance.OnLookPC;
+            @LookPC.performed += instance.OnLookPC;
+            @LookPC.canceled += instance.OnLookPC;
         }
 
         /// <summary>
@@ -870,6 +954,9 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @MoveHead.started -= instance.OnMoveHead;
             @MoveHead.performed -= instance.OnMoveHead;
             @MoveHead.canceled -= instance.OnMoveHead;
+            @LookPC.started -= instance.OnLookPC;
+            @LookPC.performed -= instance.OnLookPC;
+            @LookPC.canceled -= instance.OnLookPC;
         }
 
         /// <summary>
@@ -1036,5 +1123,12 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMoveHead(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LookPC" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLookPC(InputAction.CallbackContext context);
     }
 }
