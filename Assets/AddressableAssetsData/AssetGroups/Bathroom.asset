@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Bathroom
+  m_EditorClassIdentifier: 
+  m_GroupName: Bathroom
+  m_GUID: a448f3593a0dc6244acfcfdf64a5e8d6
+  m_SerializeEntries:
+  - m_GUID: 69a99bab84e2426458ab58b76a76fd9c
+    m_Address: BathroomPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 184aac08b45272c43968252b2a4eeacd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6924846c7aad8fc4b91dd998d3a1ecfd, type: 2}
+    - {fileID: 11400000, guid: e226fff6dd36ec140a55b3e8ea1af2dc, type: 2}
