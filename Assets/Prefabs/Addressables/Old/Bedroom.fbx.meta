@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c9fd9c24f2e0b94a8d53b0e262a2520
+guid: 179dceb48d4e1504f9e29b72705da48b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: FloorKitchenMat
-    second: {fileID: 2100000, guid: d5f57fa8aaa397146a507ec735a11b9d, type: 2}
+      name: BedroomWallsMat
+    second: {fileID: 2100000, guid: 83e0e20faa3132e4e9365e562ee8b8ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorLivingMat
+    second: {fileID: 2100000, guid: 9b86ec88060eda345afebcf8fbd8b26f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WhiteSemiGloss
-    second: {fileID: 2100000, guid: 2a3084bbfe4692644a1edeb597b4b3a7, type: 2}
+    second: {fileID: 2100000, guid: 372239f7a4dd5904c928e7ce70c2893e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

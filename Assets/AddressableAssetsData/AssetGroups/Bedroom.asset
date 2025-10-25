@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Bedroom
   m_GUID: 5a1f4f78f5364634693b49fb75fe2f86
   m_SerializeEntries:
+  - m_GUID: 83e0e20faa3132e4e9365e562ee8b8ca
+    m_Address: BedroomWallsMat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 924130ddec0ae674a91e5d0cd6358b3a
     m_Address: BedroomPrefab
     m_ReadOnly: 0

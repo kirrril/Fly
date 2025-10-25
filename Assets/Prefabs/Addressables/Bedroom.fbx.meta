@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 179dceb48d4e1504f9e29b72705da48b
+guid: 95c87965e3b5726419fb96010bc55a3f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BedroomWallsMat
+    second: {fileID: 2100000, guid: 83e0e20faa3132e4e9365e562ee8b8ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorLivingMat
+    second: {fileID: 2100000, guid: 7b5777b5bbdd58442b2bbcff88e60c8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WhiteSemiGloss
+    second: {fileID: 2100000, guid: 2a3084bbfe4692644a1edeb597b4b3a7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

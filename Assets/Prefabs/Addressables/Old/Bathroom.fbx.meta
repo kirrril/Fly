@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c9fd9c24f2e0b94a8d53b0e262a2520
+guid: c2652938ff91841438bde3b1908e12e3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WhiteSemiGloss
-    second: {fileID: 2100000, guid: 2a3084bbfe4692644a1edeb597b4b3a7, type: 2}
+    second: {fileID: 2100000, guid: 372239f7a4dd5904c928e7ce70c2893e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

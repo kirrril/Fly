@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c9fd9c24f2e0b94a8d53b0e262a2520
+guid: d2b5a6652e9b1b54ab048a1092b08c4d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,48 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BlackGlossyMat
+    second: {fileID: 2100000, guid: f25a14acd64bb8044a89badcd8066305, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CouchMat
+    second: {fileID: 2100000, guid: 8870b976a64c9ce488fec179801dd6b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DesktopMat
+    second: {fileID: 2100000, guid: c4b0cf442868fa34385df03bb09d0ae2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: FloorKitchenMat
     second: {fileID: 2100000, guid: d5f57fa8aaa397146a507ec735a11b9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorLivingMat
+    second: {fileID: 2100000, guid: 7b5777b5bbdd58442b2bbcff88e60c8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KitchenMat
+    second: {fileID: 2100000, guid: 46bc27226af26964ea461a433ac353c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LivingWallsMat
+    second: {fileID: 2100000, guid: bca74c6238cf3e94db7da0b8019e9a19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGlossyMat
+    second: {fileID: 2100000, guid: 57af3a8fdf3de754b8422fa05965e472, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalMatMat
+    second: {fileID: 2100000, guid: 06f96b9a406a5074e80e95850926eba6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
