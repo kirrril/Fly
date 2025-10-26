@@ -7,6 +7,7 @@ public class FlyMover : MonoBehaviour
     [SerializeField] private CharacterController flyController;
     [SerializeField] private Transform mainCamera;
     [SerializeField] private Transform flyLegs;
+    public static bool isIndoors;
     public Vector2 moveInput;
     private Vector2 flyInput;
     Vector3 input;
@@ -15,7 +16,7 @@ public class FlyMover : MonoBehaviour
     private Vector2 headRotationPC;
     private float speed = 3f;
     private Vector3 velocity;
-    private float gravity = -0.1f;
+    private float gravity;
     private float mouseSensitivity = 0.1f;
     private Vector2 mouseRotation;
 
@@ -26,6 +27,9 @@ public class FlyMover : MonoBehaviour
 
     void Update()
     {
+        gravity = isIndoors ? -0.01f : 0f;
+        speed = isIndoors ? 3f : 15f;
+
         bool isVR = XRGeneralSettings.Instance != null && XRGeneralSettings.Instance.Manager != null && XRGeneralSettings.Instance.Manager.activeLoader != null;
 
         if (isVR)

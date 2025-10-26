@@ -10,18 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Bathroom
+  m_Name: ApptAddressables
   m_EditorClassIdentifier: 
-  m_GroupName: Bathroom
+  m_GroupName: ApptAddressables
   m_GUID: a448f3593a0dc6244acfcfdf64a5e8d6
   m_SerializeEntries:
-  - m_GUID: 69a99bab84e2426458ab58b76a76fd9c
+  - m_GUID: 3044502031a7e354c962c006aaa4bfe5
     m_Address: BathroomPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d5f57fa8aaa397146a507ec735a11b9d
-    m_Address: FloorKitchenMat
+  - m_GUID: 88607a6ceac4aef479ca9216019f7480
+    m_Address: FacadeBedroomPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 887392656c5b17147b9087b4f61db971
+    m_Address: FacadeLivingPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1b8afb1485483144812595598c8a84f
+    m_Address: BedroomPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9ca8b8effff6cc49bd1cff705374371
+    m_Address: LivingPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: f1e7ee2796dbabf49aa4ad10ae275cef
   m_currentHash:
     serializedVersion: 2
-    Hash: 1b383737d2d491931b92bf3481e3cfe2
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -60,7 +60,6 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
-  - {fileID: 11400000, guid: f8c2126966aeaa7408d5317bc205b711, type: 2}
   - {fileID: 11400000, guid: 86c6e86f81fc27144a675cf288c7c770, type: 2}
   - {fileID: 11400000, guid: 960aa03e170553f4b8262f4e2723204e, type: 2}
   m_BuildSettings:
@@ -75,13 +74,13 @@ MonoBehaviour:
       - m_Id: 76fb8f183f76bf942b8ed1be440a5281
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 93f3608136ee6a4499f9b0b86f36b8ea
-        m_Value: Android
+        m_Value: 
       - m_Id: d76dedacf0026014d9bb6f5c3b2d0a33
-        m_Value: https://storage.googleapis.com/fly_bucket/appt_1/Android/remote
+        m_Value: 
       - m_Id: e5aafa49b5792c349b9fe6cac5574a0a
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: ea5ddc7587c8dcb42a63574a8b4260fa
-        m_Value: '[ProjectFolder]/ServerData/[BuildTarget]'
+        m_Value: 
     - m_InheritedParent: 
       m_Id: 47491c23dc9178141bdb88e89834d0be
       m_ProfileName: Remote_Editor
