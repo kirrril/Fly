@@ -12,10 +12,11 @@ public class SurfaceDetector : MonoBehaviour
 
     void Start()
     {
-        raycastMask = ~LayerMask.GetMask("CloudLoader", "Ignore Raycast");
+        // raycastMask = ~LayerMask.GetMask("CloudLoader", "Ignore Raycast");
+        raycastMask = LayerMask.GetMask("Default");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (flyMover.moveInput.y >= 0)
         {
@@ -53,7 +54,7 @@ public class SurfaceDetector : MonoBehaviour
         {
             Vector3 rotationAxis = Vector3.Cross(hit.normal, Vector3.up).normalized;
             float angle = Vector3.Angle(hit.normal, Vector3.up);
-            sceneRoot.RotateAround(xrOrigin.position, rotationAxis, angle * Time.deltaTime * 10f);
+            sceneRoot.RotateAround(xrOrigin.position, rotationAxis, angle * Time.fixedDeltaTime * 10f);
         }
     }
 }

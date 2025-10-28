@@ -24,7 +24,7 @@ public class FacadeLoader : MonoBehaviour
 
             await LoadFacade();
 
-            await Task.Delay(500);
+            // await Task.Delay(500);
             if (ApptsLoader.oldAddressableHandle.IsValid())
             {
                 Addressables.Release(ApptsLoader.oldAddressableHandle);
@@ -58,8 +58,8 @@ public class FacadeLoader : MonoBehaviour
     {
         foreach (Transform anchor in apptsAnchors)
         {
-            var handle1 = Addressables.InstantiateAsync("FacadeLivingPrefab", anchor.position, anchor.rotation, anchor);
-            var handle2 = Addressables.InstantiateAsync("FacadeBedroomPrefab", anchor.position, anchor.rotation, anchor);
+            var handle1 = Addressables.InstantiateAsync("FacadeLivingPrefab", anchor.position, Quaternion.identity,/*anchor.rotation, */transform);
+            var handle2 = Addressables.InstantiateAsync("FacadeBedroomPrefab", anchor.position, Quaternion.identity,/*anchor.rotation, */transform);
             await Task.WhenAll(handle1.Task, handle2.Task);
 
             if (handle1.Status == AsyncOperationStatus.Succeeded && handle2.Status == AsyncOperationStatus.Succeeded)

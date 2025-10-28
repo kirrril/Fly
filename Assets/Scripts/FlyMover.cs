@@ -16,7 +16,7 @@ public class FlyMover : MonoBehaviour
     private Vector2 headRotationPC;
     private float speed = 3f;
     private Vector3 velocity;
-    private float gravity;
+    private float gravity = -0.01f;
     private float mouseSensitivity = 0.1f;
     private Vector2 mouseRotation;
 
@@ -25,9 +25,9 @@ public class FlyMover : MonoBehaviour
         mouseRotation = new Vector2(mainCamera.eulerAngles.y, mainCamera.eulerAngles.x);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        gravity = isIndoors ? -0.01f : 0f;
+        // gravity = isIndoors ? -0.01f : 0f;
         speed = isIndoors ? 3f : 15f;
 
         bool isVR = XRGeneralSettings.Instance != null && XRGeneralSettings.Instance.Manager != null && XRGeneralSettings.Instance.Manager.activeLoader != null;
@@ -47,11 +47,11 @@ public class FlyMover : MonoBehaviour
         mainCamera.localRotation = Quaternion.Euler(headEuler.x, 0, headEuler.z);
 
         input = new Vector3(moveInput.x, flyInput.y, moveInput.y).normalized;
-        Vector3 move = transform.TransformDirection(input) * speed * Time.deltaTime;
+        Vector3 move = transform.TransformDirection(input) * speed * Time.fixedDeltaTime;
 
         if (flyInput.y <= 0)
         {
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += gravity * Time.fixedDeltaTime;
         }
         else
         {
