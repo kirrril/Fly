@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class ApptsLoader : MonoBehaviour
+public class ApptsLoaderModif : MonoBehaviour
 {
     [SerializeField] private string adressableName;
     [SerializeField] private GameObject spawnPoint;
@@ -36,7 +36,7 @@ public class ApptsLoader : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private async void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {

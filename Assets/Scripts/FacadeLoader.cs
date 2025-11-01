@@ -9,36 +9,26 @@ public class FacadeLoader : MonoBehaviour
 {
     [SerializeField] private List<Transform> apptsAnchors;
     [SerializeField] private GameObject sceneRoot;
-    private static List<AsyncOperationHandle<GameObject>> facadeHandles = new List<AsyncOperationHandle<GameObject>>();
-    private static List<GameObject> facadeInstances = new List<GameObject>();
+    private List<AsyncOperationHandle<GameObject>> facadeHandles = new List<AsyncOperationHandle<GameObject>>();
+    private List<GameObject> facadeInstances = new List<GameObject>();
 
 
     private async void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Entered");
-        if (other.CompareTag("CloudLoader"))
+        Debug.Log("Trigger detected");
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Tag detected by Facade Trigger");
-
+            
             FlyMover.isIndoors = false;
 
             await LoadFacade();
-
-            // await Task.Delay(500);
-            if (ApptsLoader.oldAddressableHandle.IsValid())
-            {
-                Addressables.Release(ApptsLoader.oldAddressableHandle);
-                if (ApptsLoader.oldAddressableInstance != null) Destroy(ApptsLoader.oldAddressableInstance);
-            }
         }
     }
 
-    private async void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("CloudLoader"))
+        if (other.CompareTag("Player"))
         {
-            await Task.Delay(1000);
-
             FlyMover.isIndoors = true;
 
             foreach (var handle in facadeHandles)
@@ -56,23 +46,32 @@ public class FacadeLoader : MonoBehaviour
 
     private async Task LoadFacade()
     {
+        var livingFacadeHandle = Addressables.LoadAssetAsync<GameObject>("FacadeLivingPrefab");
+        var bedroomFacadeHandle = Addressables.LoadAssetAsync<GameObject>("FacadeBedroomPrefab");
+        await Task.WhenAll(livingFacadeHandle.Task, bedroomFacadeHandle.Task);
+
+        if (livingFacadeHandle.Status != AsyncOperationStatus.Succeeded || bedroomFacadeHandle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("Échec du chargement des prefabs de façade");
+            return;
+        }
+
+        GameObject livingFacadePrefab = livingFacadeHandle.Result;
+        GameObject bedroomFacadePrefab = bedroomFacadeHandle.Result;
+
+        facadeHandles.Add(livingFacadeHandle);
+        facadeHandles.Add(bedroomFacadeHandle);
+
         foreach (Transform anchor in apptsAnchors)
         {
-            var handle1 = Addressables.InstantiateAsync("FacadeLivingPrefab", anchor.position, Quaternion.identity,/*anchor.rotation, */transform);
-            var handle2 = Addressables.InstantiateAsync("FacadeBedroomPrefab", anchor.position, Quaternion.identity,/*anchor.rotation, */transform);
-            await Task.WhenAll(handle1.Task, handle2.Task);
+            GameObject livingFacadeInstance = Instantiate(livingFacadePrefab, anchor.position, anchor.rotation, transform);
+            GameObject bedroomFacadeInstance = Instantiate(bedroomFacadePrefab, anchor.position, anchor.rotation, transform);
 
-            if (handle1.Status == AsyncOperationStatus.Succeeded && handle2.Status == AsyncOperationStatus.Succeeded)
-            {
-                facadeHandles.Add(handle1);
-                facadeHandles.Add(handle2);
-                facadeInstances.Add(handle1.Result);
-                facadeInstances.Add(handle2.Result);
-            }
-            else
-            {
-                Debug.LogError($"Échec chargement façade à {anchor.name}");
-            }
+            livingFacadeInstance.layer = LayerMask.NameToLayer("Default");
+            bedroomFacadeInstance.layer = LayerMask.NameToLayer("Default");
+
+            facadeInstances.Add(livingFacadeInstance);
+            facadeInstances.Add(bedroomFacadeInstance);
         }
     }
 

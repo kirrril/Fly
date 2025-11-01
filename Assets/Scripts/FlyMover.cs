@@ -25,7 +25,7 @@ public class FlyMover : MonoBehaviour
         mouseRotation = new Vector2(mainCamera.eulerAngles.y, mainCamera.eulerAngles.x);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // gravity = isIndoors ? -0.01f : 0f;
         speed = isIndoors ? 3f : 15f;
@@ -47,11 +47,11 @@ public class FlyMover : MonoBehaviour
         mainCamera.localRotation = Quaternion.Euler(headEuler.x, 0, headEuler.z);
 
         input = new Vector3(moveInput.x, flyInput.y, moveInput.y).normalized;
-        Vector3 move = transform.TransformDirection(input) * speed * Time.fixedDeltaTime;
+        Vector3 move = transform.TransformDirection(input) * speed * Time.deltaTime;
 
         if (flyInput.y <= 0)
         {
-            velocity.y += gravity * Time.fixedDeltaTime;
+            velocity.y += gravity * Time.deltaTime;
         }
         else
         {
