@@ -24,13 +24,9 @@ public class FlyAnimation : MonoBehaviour
         float currentYaw = xrOrigin.eulerAngles.y;
         float turn = Mathf.DeltaAngle(lastYaw, currentYaw) / Time.deltaTime;
 
-        if (!FlyMover.isIndoors)
+        if (FlyMover.isFlying)
         {
-            animator.SetFloat("up", 1f);
-        }
-        else if (up > 0.1)
-        {
-            animator.SetFloat("up", up);
+            animator.SetFloat("up", 1);
         }
         else
         {

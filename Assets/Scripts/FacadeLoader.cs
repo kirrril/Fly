@@ -15,12 +15,8 @@ public class FacadeLoader : MonoBehaviour
 
     private async void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger detected");
         if (other.CompareTag("Player"))
         {
-            
-            FlyMover.isIndoors = false;
-
             await LoadFacade();
         }
     }
@@ -29,8 +25,6 @@ public class FacadeLoader : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            FlyMover.isIndoors = true;
-
             foreach (var handle in facadeHandles)
             {
                 if (handle.IsValid()) Addressables.Release(handle);

@@ -7,12 +7,11 @@ public class SurfaceDetector : MonoBehaviour
     [SerializeField] private Transform xrOrigin;
     [SerializeField] private Transform frontRaycastOrigin;
     [SerializeField] private Transform rearRaycastOrigin;
-    private float rayDistance = 1.7f;
+    private float rayDistance = 0.5f;
     private LayerMask raycastMask;
 
     void Start()
     {
-        // raycastMask = ~LayerMask.GetMask("CloudLoader", "Ignore Raycast");
         raycastMask = ~LayerMask.GetMask("Ignore Raycast");
     }
 
@@ -22,32 +21,37 @@ public class SurfaceDetector : MonoBehaviour
         {
             if (Physics.Raycast(transform.position, (-transform.up + transform.forward).normalized, out RaycastHit frontForwardHit, rayDistance, raycastMask))
             {
+                FlyMover.isFlying = false;
                 Debug.DrawRay(transform.position, (-transform.up + transform.forward).normalized * rayDistance, Color.green, 0.1f);
                 Rotate(frontForwardHit);
                 return;
-
             }
-            else if (Physics.Raycast(frontRaycastOrigin.position, (-transform.up + -transform.forward).normalized, out RaycastHit frontBackwardHit, rayDistance, raycastMask))
+            else if (Physics.Raycast(frontRaycastOrigin.position, (-transform.up + -transform.forward).normalized, out RaycastHit frontBackwardHit, rayDistance * 0.5f, raycastMask))
             {
+                FlyMover.isFlying = false;
                 Debug.DrawRay(frontRaycastOrigin.position, (-transform.up + -transform.forward).normalized * rayDistance, Color.yellow, 0.1f);
                 Rotate(frontBackwardHit);
                 return;
             }
+            else FlyMover.isFlying = true;
         }
         else
         {
             if (Physics.Raycast(transform.position, (-transform.up + -transform.forward).normalized, out RaycastHit backBackwardHit, rayDistance, raycastMask))
             {
+                FlyMover.isFlying = false;
                 Debug.DrawRay(transform.position, (-transform.up + -transform.forward).normalized * rayDistance, Color.red, 0.1f);
                 Rotate(backBackwardHit);
                 return;
             }
-            else if (Physics.Raycast(rearRaycastOrigin.position, (-transform.up + transform.forward).normalized, out RaycastHit backForwardHit, rayDistance, raycastMask))
+            else if (Physics.Raycast(rearRaycastOrigin.position, (-transform.up + transform.forward).normalized, out RaycastHit backForwardHit, rayDistance * 0.5f, raycastMask))
             {
+                FlyMover.isFlying = false;
                 Debug.DrawRay(rearRaycastOrigin.position, (-transform.up + -transform.forward).normalized * rayDistance, Color.cyan, 0.1f);
                 Rotate(backForwardHit);
                 return;
             }
+            else FlyMover.isFlying = true;
         }
 
         void Rotate(RaycastHit hit)
