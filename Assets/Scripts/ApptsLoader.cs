@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -10,56 +7,65 @@ public class ApptsLoader : MonoBehaviour
     [SerializeField] private string adressableName;
     [SerializeField] private GameObject spawnPoint;
     [SerializeField] private GameObject sceneRoot;
-    private AsyncOperationHandle<GameObject> oldAddressableHandle;
-    private AsyncOperationHandle<GameObject> newAddressableHandle;
-    private GameObject oldAddressableInstance;
-    private GameObject newAddressableInstance;
+    private AsyncOperationHandle<GameObject> addressableHandle;
+    private GameObject addressableInstance;
+    private bool isLoading = false;
+    private int playerInsideCount = 0;
 
     private async void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        playerInsideCount++;
+
+        if (isLoading || addressableHandle.IsValid())
         {
-            newAddressableHandle = Addressables.InstantiateAsync(adressableName, spawnPoint.transform.position, spawnPoint.transform.rotation, transform);
-            await newAddressableHandle.Task;
-
-            if (newAddressableHandle.Status == AsyncOperationStatus.Succeeded)
-            {
-                newAddressableInstance = newAddressableHandle.Result;
-            }
-            else
-            {
-                Debug.LogError($"Échec chargement {adressableName}");
-            }
-
-            oldAddressableHandle = newAddressableHandle;
-            oldAddressableInstance = newAddressableInstance;
+            Debug.Log($"Handle {adressableName} a déjà été chargé.");
+            return;
         }
+
+        isLoading = true;
+        addressableHandle = Addressables.InstantiateAsync(adressableName, spawnPoint.transform.position, spawnPoint.transform.rotation, transform);
+        await addressableHandle.Task;
+
+        if (addressableHandle.Status == AsyncOperationStatus.Succeeded)
+        {
+            addressableInstance = addressableHandle.Result;
+        }
+        else
+        {
+            Debug.LogError($"Échec chargement {adressableName}");
+        }
+        isLoading = false;
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        playerInsideCount--;
+
+        if (playerInsideCount <= 0)
         {
-            if (oldAddressableHandle.IsValid())
-            {
-                Addressables.Release(oldAddressableHandle);
-                if (oldAddressableInstance != null) Destroy(oldAddressableInstance);
-            }
+            playerInsideCount = 0;
+            UnloadRoom();
+        }
+    }
+
+    private void UnloadRoom()
+    {
+        if (addressableHandle.IsValid())
+        {
+            Addressables.Release(addressableHandle);
+            if (addressableInstance != null) Destroy(addressableInstance);
+            addressableHandle = default;
+            addressableInstance = null;
         }
     }
 
     void OnDestroy()
     {
-        if (oldAddressableHandle.IsValid() && oldAddressableInstance != null)
-        {
-            Addressables.Release(oldAddressableHandle);
-            Destroy(oldAddressableInstance);
-        }
-
-        if (newAddressableHandle.IsValid() && newAddressableInstance != null)
-        {
-            Addressables.Release(newAddressableHandle);
-            Destroy(newAddressableInstance);
-        }
+        UnloadRoom();
     }
 }

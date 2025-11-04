@@ -11,30 +11,28 @@ public class FacadeLoader : MonoBehaviour
     [SerializeField] private GameObject sceneRoot;
     private List<AsyncOperationHandle<GameObject>> facadeHandles = new List<AsyncOperationHandle<GameObject>>();
     private List<GameObject> facadeInstances = new List<GameObject>();
+    private bool isLoading = false;
 
+    private async void Start()
+    {
+        await LoadFacade();
+    }
 
-    private async void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            await LoadFacade();
+            UnloadFacades();
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private async void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isLoading)
         {
-            foreach (var handle in facadeHandles)
-            {
-                if (handle.IsValid()) Addressables.Release(handle);
-            }
-            foreach (var instance in facadeInstances)
-            {
-                if (instance != null) Destroy(instance);
-            }
-            facadeHandles.Clear();
-            facadeInstances.Clear();
+            isLoading = true;
+            await LoadFacade();
+            isLoading = false;
         }
     }
 
@@ -69,7 +67,7 @@ public class FacadeLoader : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    private void UnloadFacades()
     {
         foreach (var handle in facadeHandles)
         {
@@ -81,5 +79,10 @@ public class FacadeLoader : MonoBehaviour
         }
         facadeHandles.Clear();
         facadeInstances.Clear();
+    }
+
+    private void OnDestroy()
+    {
+        UnloadFacades();
     }
 }

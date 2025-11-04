@@ -15,8 +15,28 @@ MonoBehaviour:
   m_GroupName: ApptAddressables
   m_GUID: a448f3593a0dc6244acfcfdf64a5e8d6
   m_SerializeEntries:
+  - m_GUID: 0f49a8b58f3b83e4bb446f349fe0bc5d
+    m_Address: DoorBathroomPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3044502031a7e354c962c006aaa4bfe5
     m_Address: BathroomPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31c168e9d6a105e4ea3c773dab8ad593
+    m_Address: FoodCoffeePrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55a9785669869b04cb70e27ba880d1cc
+    m_Address: WindowLivingPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86a8b52fbe94a8345b45acf24db8483f
+    m_Address: FoodPanPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -30,8 +50,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f178298824fccb419633fab22eb08e9
+    m_Address: DoorBedroom
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a1b8afb1485483144812595598c8a84f
     m_Address: BedroomPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be4ed033c15ecb04bbbd19b90b841a98
+    m_Address: WindowBedroomPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

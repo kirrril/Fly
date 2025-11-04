@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: 3dcee57261db5ef40846fb7053ffe74b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: FloorLivingMat
     second: {fileID: 2100000, guid: 7b5777b5bbdd58442b2bbcff88e60c8a, type: 2}
   - first:

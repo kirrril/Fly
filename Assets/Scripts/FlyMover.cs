@@ -13,7 +13,9 @@ public class FlyMover : MonoBehaviour
     Vector3 headEuler;
     private Quaternion headRotation;
     private Vector2 headRotationPC;
-    private float speed;
+    public float speed;
+    public float flyingSpeed;
+    public float walkingSpeed;
     private Vector3 velocity;
     private float gravity = -0.01f;
     private float mouseSensitivity = 0.1f;
@@ -23,11 +25,13 @@ public class FlyMover : MonoBehaviour
     void Start()
     {
         mouseRotation = new Vector2(mainCamera.eulerAngles.y, mainCamera.eulerAngles.x);
+        flyingSpeed = 400f;
+        walkingSpeed = 20f;
     }
 
     void Update()
     {
-        speed = isFlying ? 20f : 2f;        
+        speed = isFlying ? speed = flyingSpeed : speed = walkingSpeed;        
 
         bool isVR = XRGeneralSettings.Instance != null && XRGeneralSettings.Instance.Manager != null && XRGeneralSettings.Instance.Manager.activeLoader != null;
 

@@ -12,6 +12,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BlackMatMat
+    second: {fileID: 2100000, guid: 99ed2d0f710932c4989a6fd2c2ee6bbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coffee
+    second: {fileID: 2100000, guid: c64d2c55a69f89748bd9c0e73ecba3ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: 3dcee57261db5ef40846fb7053ffe74b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: CouchMat
     second: {fileID: 2100000, guid: 8870b976a64c9ce488fec179801dd6b9, type: 2}
   - first:
@@ -32,6 +47,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Ketchup
+    second: {fileID: 2100000, guid: ab2f7a829aa419c46a08c7e5643d468f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: KitchenMat
     second: {fileID: 2100000, guid: 46bc27226af26964ea461a433ac353c8, type: 2}
   - first:
@@ -49,6 +69,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MetalMatMat
     second: {fileID: 2100000, guid: 06f96b9a406a5074e80e95850926eba6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Oil
+    second: {fileID: 2100000, guid: 224dc403bbd00da4499ab97f04ab22f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SemiTransparent
+    second: {fileID: 2100000, guid: de1f8221e0fc758449d9dd48f69c83f9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
