@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class ApptsLoader : MonoBehaviour
+public class RoomsLoader : MonoBehaviour
 {
     [SerializeField] private string adressableName;
     [SerializeField] private GameObject spawnPoint;
