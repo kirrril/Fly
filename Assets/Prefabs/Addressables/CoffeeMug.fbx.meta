@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3036c6e8186e298428bad3e49c5385a6
+guid: c11f720f80e5b084a89b0f59bf1338ca
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,33 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BlackGlossyMat
-    second: {fileID: 2100000, guid: f25a14acd64bb8044a89badcd8066305, type: 2}
+      name: Coffee
+    second: {fileID: 2100000, guid: c64d2c55a69f89748bd9c0e73ecba3ac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BlackMatMat
-    second: {fileID: 2100000, guid: 99ed2d0f710932c4989a6fd2c2ee6bbd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ketchup
-    second: {fileID: 2100000, guid: ab2f7a829aa419c46a08c7e5643d468f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MetalGlossyMat
-    second: {fileID: 2100000, guid: 57af3a8fdf3de754b8422fa05965e472, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MetalMatMat
-    second: {fileID: 2100000, guid: 06f96b9a406a5074e80e95850926eba6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Oil
-    second: {fileID: 2100000, guid: 224dc403bbd00da4499ab97f04ab22f0, type: 2}
+      name: WhiteSemiGloss
+    second: {fileID: 2100000, guid: 2a3084bbfe4692644a1edeb597b4b3a7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: e398b99c45abb9b4caf811e0bd21d879
+guid: 58a6578e6bbfef343b7cb9c0f831a321
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Coffee
-    second: {fileID: 2100000, guid: c64d2c55a69f89748bd9c0e73ecba3ac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MetalGlossyMat
-    second: {fileID: 2100000, guid: 57af3a8fdf3de754b8422fa05965e472, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WhiteSemiGloss
-    second: {fileID: 2100000, guid: 2a3084bbfe4692644a1edeb597b4b3a7, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

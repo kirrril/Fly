@@ -36,8 +36,6 @@ public class FlyAnimation : MonoBehaviour
 
             animator.SetFloat("forward", forward);
 
-            Debug.Log($"Forward: {forward}");
-
             if (forward < 0.1f && (turn > 0.1f || turn < -0.1f))
             {
                 animator.SetFloat("turn", turn);
