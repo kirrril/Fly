@@ -2,21 +2,18 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class RoomsLoader : MonoBehaviour
+public class ApptLoader : MonoBehaviour
 {
     [SerializeField] private string adressableName;
     [SerializeField] private GameObject spawnPoint;
-    [SerializeField] private GameObject sceneRoot;
     private AsyncOperationHandle<GameObject> addressableHandle;
     private GameObject addressableInstance;
     private bool isLoading = false;
-    private int playerInsideCount = 0;
+
 
     private async void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-
-        playerInsideCount++;
 
         if (isLoading || addressableHandle.IsValid())
         {
@@ -44,13 +41,7 @@ public class RoomsLoader : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        playerInsideCount--;
-
-        if (playerInsideCount <= 0)
-        {
-            playerInsideCount = 0;
-            UnloadRoom();
-        }
+        UnloadRoom();
     }
 
     private void UnloadRoom()
