@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - CloudLoader
+  - Eater
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - OrbitGizmo
   - Water
   - UI
-  - CloudLoader
+  - Food
   - 
   - 
   - 

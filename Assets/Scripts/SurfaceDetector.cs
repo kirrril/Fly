@@ -12,7 +12,7 @@ public class SurfaceDetector : MonoBehaviour
 
     void Start()
     {
-        raycastMask = ~LayerMask.GetMask("Ignore Raycast");
+        raycastMask = ~LayerMask.GetMask("Ignore Raycast"/*, "Food"*/);
     }
 
     void Update()

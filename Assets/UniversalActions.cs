@@ -261,6 +261,15 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Eat"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7afcef9-f7c5-4b0f-8cd3-f35cc6a6f9e3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -615,6 +624,28 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
                     ""action"": ""LookPC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95e1a9f7-137d-4c33-97ff-92a79659497a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f769f7c8-e5a0-4eef-b342-cd0956297d3e"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryTrigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -642,6 +673,7 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         m_UniversalMap_Fly = m_UniversalMap.FindAction("Fly", throwIfNotFound: true);
         m_UniversalMap_MoveHead = m_UniversalMap.FindAction("MoveHead", throwIfNotFound: true);
         m_UniversalMap_LookPC = m_UniversalMap.FindAction("LookPC", throwIfNotFound: true);
+        m_UniversalMap_Eat = m_UniversalMap.FindAction("Eat", throwIfNotFound: true);
     }
 
     ~@UniversalActions()
@@ -741,6 +773,7 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UniversalMap_Fly;
     private readonly InputAction m_UniversalMap_MoveHead;
     private readonly InputAction m_UniversalMap_LookPC;
+    private readonly InputAction m_UniversalMap_Eat;
     /// <summary>
     /// Provides access to input actions defined in input action map "UniversalMap".
     /// </summary>
@@ -829,6 +862,10 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @LookPC => m_Wrapper.m_UniversalMap_LookPC;
         /// <summary>
+        /// Provides access to the underlying input action "UniversalMap/Eat".
+        /// </summary>
+        public InputAction @Eat => m_Wrapper.m_UniversalMap_Eat;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UniversalMap; }
@@ -911,6 +948,9 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @LookPC.started += instance.OnLookPC;
             @LookPC.performed += instance.OnLookPC;
             @LookPC.canceled += instance.OnLookPC;
+            @Eat.started += instance.OnEat;
+            @Eat.performed += instance.OnEat;
+            @Eat.canceled += instance.OnEat;
         }
 
         /// <summary>
@@ -979,6 +1019,9 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
             @LookPC.started -= instance.OnLookPC;
             @LookPC.performed -= instance.OnLookPC;
             @LookPC.canceled -= instance.OnLookPC;
+            @Eat.started -= instance.OnEat;
+            @Eat.performed -= instance.OnEat;
+            @Eat.canceled -= instance.OnEat;
         }
 
         /// <summary>
@@ -1152,5 +1195,12 @@ public partial class @UniversalActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLookPC(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Eat" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEat(InputAction.CallbackContext context);
     }
 }

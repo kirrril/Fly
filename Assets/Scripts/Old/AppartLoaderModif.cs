@@ -36,7 +36,7 @@ public class ApptsLoaderModif : MonoBehaviour
         }
     }
 
-    private async void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {

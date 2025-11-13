@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FoodPoint : MonoBehaviour
+public class ParticlesLauncher : MonoBehaviour
 {
     private ParticlePool particlePool;
     [SerializeField] private string poolName;
@@ -10,6 +10,14 @@ public class FoodPoint : MonoBehaviour
     private void OnEnable()
     {
         particlePool = GameObject.Find(poolName).GetComponent<ParticlePool>();
+    }
+
+    private void Update()
+    {
+        if (ps != null)
+        {
+            ps.transform.position = transform.position;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,5 +36,13 @@ public class FoodPoint : MonoBehaviour
             particlePool.Return(ps);
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        if (ps != null)
+        {
+            particlePool.Return(ps);
+        }
     }
 }

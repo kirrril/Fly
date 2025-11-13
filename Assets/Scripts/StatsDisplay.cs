@@ -16,9 +16,9 @@ public class StatsDisplay : MonoBehaviour
                 float fps = 1.0f / deltaTime;
 
                 FPSdataText.text = $"{fps:0.}";
-                SugarDataText.text = $"{EnergyController.Instance.sugar}";
-                ProteinDataText.text = $"{EnergyController.Instance.protein}";
-                WaterDataText.text = $"{EnergyController.Instance.water}";
-                HeatDataText.text = $"{EnergyController.Instance.heat}";
+                SugarDataText.text = $"{Eater.Instance.consumedSugar}";
+                ProteinDataText.text = $"{Eater.Instance.consumedProtein}";
+                WaterDataText.text = $"{Eater.Instance.consumedWater}";
+                HeatDataText.text = $"{Eater.Instance.consumedHeat}";
         }
 }

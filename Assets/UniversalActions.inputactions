@@ -175,6 +175,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Eat",
+                    "type": "Button",
+                    "id": "d7afcef9-f7c5-4b0f-8cd3-f35cc6a6f9e3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -527,6 +536,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LookPC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95e1a9f7-137d-4c33-97ff-92a79659497a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f769f7c8-e5a0-4eef-b342-cd0956297d3e",
+                    "path": "<XRController>{RightHand}/{PrimaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
