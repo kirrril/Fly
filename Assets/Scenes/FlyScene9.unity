@@ -850,11 +850,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &307462351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5440273156515755268, guid: df19f540bc8a54b4291fec7ac9083294, type: 3}
-  m_PrefabInstance: {fileID: 809352889}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &436010313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,12 +3617,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c27fc6be9fd7e4795fbdb34826aad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sugar: 0
-  protein: 0
-  water: 0
-  heat: 0
+  consumedSugar: 0
+  consumedProtein: 0
+  consumedWater: 0
+  consumedHeat: 0
   isPumping: 0
   isEating: 0
+  absorbSpeed: 5
 --- !u!1 &1025287170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3981,35 +3977,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 705211960725709687, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1226246897}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
 --- !u!4 &1226246895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5685802130163139718, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
   m_PrefabInstance: {fileID: 1226246894}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1226246896 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 705211960725709687, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
-  m_PrefabInstance: {fileID: 1226246894}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1226246897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226246896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6fa1c40409118c40ae550748532f140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adressableName: Appt_2_Prefab
-  spawnPoint: {fileID: 1792179625}
 --- !u!1 &1283935966
 GameObject:
   m_ObjectHideFlags: 0
@@ -5151,10 +5125,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ApptTrigger
       objectReference: {fileID: 0}
-    - target: {fileID: 979689838580496007, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
-      propertyPath: facade
-      value: 
-      objectReference: {fileID: 307462351}
     - target: {fileID: 5685802130163139718, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5195,38 +5165,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6272794948982257004, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 537780600}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 705211960725709687, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1705478717}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
 --- !u!4 &1705478715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5685802130163139718, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
   m_PrefabInstance: {fileID: 1705478714}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1705478716 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 705211960725709687, guid: 8e707a7ba2f86b8478025262865ad350, type: 3}
-  m_PrefabInstance: {fileID: 1705478714}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1705478717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705478716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6fa1c40409118c40ae550748532f140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adressableName: Appt_1_Prefab
-  spawnPoint: {fileID: 537780600}
 --- !u!1 &1754267704
 GameObject:
   m_ObjectHideFlags: 0

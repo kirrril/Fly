@@ -45,8 +45,11 @@ public class Eater : MonoBehaviour
         else
         {
             isEating = false;
-            if (food != null) food = null;
-            nutritionalValue.enabled = false;
+            if (food != null)
+            {
+                nutritionalValue.enabled = false;
+                food = null;
+            }
         }
     }
 
@@ -59,13 +62,13 @@ public class Eater : MonoBehaviour
         }
         if (nutritionalValue.availableProtein > 0)
         {
-            nutritionalValue.availableSugar -= absorbSpeed * Time.deltaTime;
-            consumedSugar += absorbSpeed * Time.deltaTime;
+            nutritionalValue.availableProtein -= absorbSpeed * Time.deltaTime;
+            consumedProtein += absorbSpeed * Time.deltaTime;
         }
         if (nutritionalValue.availableWater > 0)
         {
-            nutritionalValue.availableSugar -= absorbSpeed * Time.deltaTime;
-            consumedSugar += absorbSpeed * Time.deltaTime;
+            nutritionalValue.availableWater -= absorbSpeed * Time.deltaTime;
+            consumedWater += absorbSpeed * Time.deltaTime;
         }
         if (nutritionalValue.heat > 0)
         {
