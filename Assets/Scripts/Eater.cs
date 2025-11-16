@@ -37,10 +37,14 @@ public class Eater : MonoBehaviour
         {
             isEating = Physics.Raycast(transform.position, (-transform.up + transform.forward).normalized, out RaycastHit frontForwardHit, 0.5f, foodLayer);
             Debug.DrawRay(transform.position, (-transform.up + transform.forward).normalized * 0.5f, Color.red, 5f);
-            food = frontForwardHit.collider.gameObject;
-            nutritionalValue = food.GetComponent<NutritionalValue>();
-            nutritionalValue.enabled = true;
-            FlyConsuming();
+            
+            if (isEating)
+            {
+                food = frontForwardHit.collider.gameObject;
+                nutritionalValue = food.GetComponent<NutritionalValue>();
+                nutritionalValue.enabled = true;
+                FlyConsuming();
+            }
         }
         else
         {
